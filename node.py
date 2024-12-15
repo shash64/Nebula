@@ -3,7 +3,7 @@ def store_chunk(chunk):
 
 def retrieve_chunk(chunk_id):
     print(f"Récupération du morceau {chunk_id}.")
-    return b""
+    #return b""
 
 def delete_chunk(chunk_id):
     print(f"Morceau {chunk_id} supprimé.")
