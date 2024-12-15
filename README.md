@@ -63,7 +63,7 @@ Choisissez une option : 1 ou upload
 Entrez le chemin du fichier à envoyer : mots.txt
 Divisez le fichier en Mo/Ko ? : Selon la taille du fichier 
 Fichier mots.txt envoyé avec succès. ID : 1234
-Clé associée : la clé pour dechiffrer 
+Clé associée : la clé à sauvegarder pour déchiffrer les fichiers
 ```
 
 ### Télécharger un fichier:
