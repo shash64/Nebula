@@ -33,11 +33,11 @@ pip install cryptography
 ### Lancer le projet
 1. Cloner ce dépôt :
 ```bash
-git clone https://github.com/shash/Nebula.git
+git clone https://github.com/shash64/Nebula.git
 ```
 2. Accèder au répertoire :
 ```bash
-cd DecentralizedFileStorage
+cd Nebula
 ```
 3. Lancer l'application :
 ```bash
