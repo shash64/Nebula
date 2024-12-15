@@ -61,7 +61,7 @@ Une fois lancé, le programme permet:
 4. Quitter (quit)
 Choisissez une option : 1 ou upload
 Entrez le chemin du fichier à envoyer : mots.txt
-Divisez le fichier en Mo/Ko ? 
+Divisez le fichier en Mo/Ko ? : Selon la taille du fichier 
 Fichier mots.txt envoyé avec succès. ID : 1234
 Clé associée : la clé pour dechiffrer 
 ```
