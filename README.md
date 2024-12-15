@@ -13,15 +13,14 @@ Nebula est un projet qui permet de créer un système de stockage de fichiers d�
 
 ```
 .
-├── main.py            # Point d'entrée principal du projet
+├── main.py            # Fichier principal du projet
 ├── client.py          # Interface utilisateur et gestion des clés RSA
 ├── file_manager.py    # Gestion du découpage et recomposition des fichiers
-├── network.py         # Simule la communication avec les nœuds
+├── network.py         # Simule la communication avec les nœuds (à venir)
 ├── storage/           # Répertoire local pour stocker les morceaux
-├── metadata.json      # Métadonnées des fichiers (généré automatiquement)
+├── metadata.json      # Métadonnées des fichiers (BDD)
 ├── private_key.pem    # Clé privée RSA (générée automatiquement)
-├── public_key.pem     # Clé publique RSA (générée automatiquement)
-└── README.md          # Documentation du projet
+└── public_key.pem     # Clé publique RSA (générée automatiquement)
 ```
 
 ## Installation
@@ -52,18 +51,19 @@ Une fois lancé, le programme offre plusieurs options dans le terminal :
 3. **Supprimer un fichier (delete)** : Fournis l'ID et la clé pour demander la suppression.
 4. **Quitter** : Ferme l'application.
 
-## Exemple d'exécution
+## Exemple:
 ### Upload d'un fichier :
 ```
-=== Bienvenue dans le stockage décentralisé ===
+=== Bienvenue dans le lanceur Nebula ===
 1. Envoyer un fichier (upload)
 2. Télécharger un fichier (download)
 3. Supprimer un fichier (delete)
 4. Quitter
-Choisissez une option : 1
-Entrez le chemin du fichier à envoyer : example.txt
-Fichier example.txt envoyé avec succès. ID : 1234
-Clé associée : b'your_generated_key'
+Choisissez une option : 1 ou upload
+Entrez le chemin du fichier à envoyer : mots.txt
+Divisez le fichier en Mo/Ko ? 
+Fichier mots.txt envoyé avec succès. ID : 1234
+Clé associée : la clée pour dechiffrer 
 ```
 
 ### Télécharger un fichier :
@@ -80,23 +80,9 @@ Téléchargement et décryptage terminés.
 ```
 
 ## Fonctionnalités futures
-- Distribution réelle des morceaux sur des nœuds distants.
-- Implémentation d'un protocole réseau (ex : Flask, gRPC).
-- Amélioration de la gestion des clés avec un modèle inspiré de PGP.
-- Intégration d'un système de consensus pour la vérification distribuée.
+- Distribution réelle des morceaux de fichiers sur des nœuds distants.
+- Implémentation d'un protocole réseau décentralisée.
+- Intégration d'un système de consensus pour la vérification entre les noeuds.
+- Intégration d'un système de requêtes (quand l'utilisateur demande un download, tous les noeuds ayant des morceaux l'envoie à l'utilisateur pour le reconstruire).
+- Mise en place de récompenses (crypto) pour les noeuds qui hébergent des fichiers externes
 
-## Contribution
-Les contributions sont les bienvenues !
-1. Fork le dépôt.
-2. Crée une branche :
-```bash
-git checkout -b feature-nouvelle-fonctionnalite
-```
-3. Effectue tes changements et commit :
-```bash
-git commit -m "Ajoute une nouvelle fonctionnalité"
-```
-4. Pousse la branche et ouvre une Pull Request.
-
-## Licence
-Ce projet est sous licence MIT. Voir le fichier [LICENSE](LICENSE) pour plus de détails.
