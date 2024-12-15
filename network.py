@@ -25,8 +25,8 @@ def download_chunks(file_id):
     chunks = []
     for chunk_file in sorted(os.listdir(storage_dir)):
         chunk_path = os.path.join(storage_dir, chunk_file)
-        with open(chunk_path, "rb") as cf:
-            chunks.append(cf.read())
+        with open(chunk_path, "rb") as file:
+            chunks.append(file.read())
         print(f"Morceau {chunk_file} chargé.")
     return chunks
 
