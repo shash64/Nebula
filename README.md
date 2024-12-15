@@ -1,7 +1,7 @@
 # Nebula
 
 ## Description
-Nebula est un projet qui permet de créer un système de stockage de fichiers décentralisé et sécurisé. Les fichiers sont chiffrés, divisés en morceaux et distribués sur différents nœuds ainsi, seul l'utilisateur ayant la clé privée peut accéder, télécharger ou supprimer ses fichiers.
+Nebula est un projet qui permet de créer un système de stockage de fichiers décentralisé et sécurisé. Les fichiers sont chiffrés, divisés en morceaux et distribués sur différents nœuds, ainsi, seul l'utilisateur ayant la clé privée peut accéder, télécharger ou supprimer ses fichiers.
 
 ### Fonctionnalités principales:
 - **Chiffrement RSA** : Les fichiers sont protégés par une clé publique/privée.
