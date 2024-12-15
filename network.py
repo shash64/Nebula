@@ -13,12 +13,14 @@ def upload_chunks(chunks):
         print(f"Morceau {i + 1} sauvegardé à {chunk_path}. Taille : {len(chunk)} octets.")
     return file_id
 
+
 def download_chunks(file_id):
     storage_dir = f"storage/{file_id}"
     if not os.path.exists(storage_dir):
         print(f"Aucun fichier trouvé pour l'ID : {file_id}")
         return []
 
+    
     print(f"Téléchargement des morceaux pour le fichier ID : {file_id}...")
     chunks = []
     for chunk_file in sorted(os.listdir(storage_dir)):
@@ -27,6 +29,7 @@ def download_chunks(file_id):
             chunks.append(cf.read())
         print(f"Morceau {chunk_file} chargé.")
     return chunks
+
 
 def delete_chunks(file_id):
     storage_dir = f"storage/{file_id}"
