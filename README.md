@@ -1,16 +1,15 @@
-# Projet : Decentralized File Storage
+# Projet : Nebula
 
 ## Description
-Decentralized File Storage est un projet visant à créer un système de stockage de fichiers décentralisé sécurisé. Les fichiers sont chiffrés, divisés en morceaux, et distribués sur différents nœuds. Seul l'utilisateur ayant la clé privée peut accéder, télécharger ou supprimer ses fichiers.
+Nebula est un projet qui permet de créer un système de stockage de fichiers décentralisé et sécurisé. Les fichiers sont chiffrés, divisés en morceaux, et distribués sur différents nœuds. Ainsi, seul l'utilisateur ayant la clé privée peut accéder, télécharger ou supprimer ses fichiers.
 
 ### Fonctionnalités principales :
 - **Chiffrement RSA (asymétrique)** : Les fichiers sont protégés par une clé publique/privée.
 - **Découpage de fichiers** : Les fichiers sont divisés en morceaux pour être distribués.
-- **Stockage sécurisé** : Les morceaux sont stockés sur des nœuds (actuellement simulés localement).
-- **Authentification des clés** : Seule la clé valide permet d'effectuer des opérations sur les fichiers.
+- **Stockage sécurisé** : Les morceaux sont stockés dans un dossier (en local pour le moment).
+- **Authentification des clés** : Seule la clé valide permet d'effectuer des manipulations sur les fichiers.
 
 ## Structure du projet
-Le projet est organisé comme suit :
 
 ```
 .
@@ -27,12 +26,7 @@ Le projet est organisé comme suit :
 
 ## Installation
 
-### Prérequis
-- Python 3.8 ou plus
-- Bibliothèques nécessaires :
-  - `cryptography`
-
-Installe les dépendances en exécutant :
+Installe le framework cryptography:
 ```bash
 pip install cryptography
 ```
@@ -40,7 +34,7 @@ pip install cryptography
 ### Lancer le projet
 1. Clone ce dépôt :
 ```bash
-git clone https://github.com/ton-utilisateur/DecentralizedFileStorage.git
+git clone https://github.com/shash/Nebula.git
 ```
 2. Accède au répertoire :
 ```bash
