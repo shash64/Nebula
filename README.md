@@ -1,10 +1,10 @@
-# Projet : Nebula
+# Nebula
 
 ## Description
-Nebula est un projet qui permet de créer un système de stockage de fichiers décentralisé et sécurisé. Les fichiers sont chiffrés, divisés en morceaux, et distribués sur différents nœuds. Ainsi, seul l'utilisateur ayant la clé privée peut accéder, télécharger ou supprimer ses fichiers.
+Nebula est un projet qui permet de créer un système de stockage de fichiers décentralisé et sécurisé. Les fichiers sont chiffrés, divisés en morceaux et distribués sur différents nœuds ainsi, seul l'utilisateur ayant la clé privée peut accéder, télécharger ou supprimer ses fichiers.
 
-### Fonctionnalités principales :
-- **Chiffrement RSA (asymétrique)** : Les fichiers sont protégés par une clé publique/privée.
+### Fonctionnalités principales:
+- **Chiffrement RSA** : Les fichiers sont protégés par une clé publique/privée.
 - **Découpage de fichiers** : Les fichiers sont divisés en morceaux pour être distribués.
 - **Stockage sécurisé** : Les morceaux sont stockés dans un dossier (en local pour le moment).
 - **Authentification des clés** : Seule la clé valide permet d'effectuer des manipulations sur les fichiers.
@@ -25,61 +25,61 @@ Nebula est un projet qui permet de créer un système de stockage de fichiers d�
 
 ## Installation
 
-Installe le framework cryptography:
+Installation du framework cryptography:
 ```bash
 pip install cryptography
 ```
 
 ### Lancer le projet
-1. Clone ce dépôt :
+1. Cloner ce dépôt :
 ```bash
 git clone https://github.com/shash/Nebula.git
 ```
-2. Accède au répertoire :
+2. Accèder au répertoire :
 ```bash
 cd DecentralizedFileStorage
 ```
-3. Lance l'application :
+3. Lancer l'application :
 ```bash
 python main.py
 ```
 
 ## Utilisation
-Une fois lancé, le programme offre plusieurs options dans le terminal :
-1. **Envoyer un fichier (upload)** : Sélectionne un fichier à chiffrer, découper, et stocker.
-2. **Télécharger un fichier (download)** : Fournis l'ID du fichier et la clé pour le récupérer.
+Une fois lancé, le programme permet:
+1. **Envoyer un fichier (upload)** : Sélectionne un fichier à chiffrer, découper et stocker.
+2. **Télécharger un fichier (download)** : Fournis l'ID du fichier et la clé pour le récupérer et le recompiler.
 3. **Supprimer un fichier (delete)** : Fournis l'ID et la clé pour demander la suppression.
-4. **Quitter** : Ferme l'application.
+4. **Quitter (quit)** : Ferme l'application.
 
 ## Exemple:
-### Upload d'un fichier :
+### Upload d'un fichier:
 ```
 === Bienvenue dans le lanceur Nebula ===
 1. Envoyer un fichier (upload)
 2. Télécharger un fichier (download)
 3. Supprimer un fichier (delete)
-4. Quitter
+4. Quitter (quit)
 Choisissez une option : 1 ou upload
 Entrez le chemin du fichier à envoyer : mots.txt
 Divisez le fichier en Mo/Ko ? 
 Fichier mots.txt envoyé avec succès. ID : 1234
-Clé associée : la clée pour dechiffrer 
+Clé associée : la clé pour dechiffrer 
 ```
 
-### Télécharger un fichier :
+### Télécharger un fichier:
 ```
-=== Bienvenue dans le stockage décentralisé ===
+=== Bienvenue dans le lanceur Nebula ===
 1. Envoyer un fichier (upload)
 2. Télécharger un fichier (download)
 3. Supprimer un fichier (delete)
-4. Quitter
-Choisissez une option : 2
+4. Quitter (quit)
+Choisissez une option : 2 ou download
 Entrez l'ID du fichier à télécharger : 1234
-Entrez la clé associée : b'your_generated_key'
+Entrez la clé associée : la clé générée lors de l'upload
 Téléchargement et décryptage terminés.
 ```
 
-## Fonctionnalités futures
+## Fonctionnalités futures:
 - Distribution réelle des morceaux de fichiers sur des nœuds distants.
 - Implémentation d'un protocole réseau décentralisée.
 - Intégration d'un système de consensus pour la vérification entre les noeuds.
