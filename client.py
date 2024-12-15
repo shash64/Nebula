@@ -170,8 +170,10 @@ class Client:
             if choice == "1" or choice == "upload":
                 self.upload_file()
             elif choice == "2" or choice == "download":
+                self.load_metadata()
                 self.download_file()
             elif choice == "3" or choice == "delete":
+                self.load_metadata()
                 self.delete_file()
             elif choice == "4" or choice == "quit":
                 break
