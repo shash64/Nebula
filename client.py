@@ -96,32 +96,34 @@ class Client:
             key = self.generate_key()
             encrypted_key = self.encrypt_jsonkey_with_public_key(key)
             encrypted_data = self.encrypt_file(filepath, key)
+            file_size = len(encrypted_data)  #Prend la taille du fichier encrypté en octets
 
-            chunk_size = input("Divisez le fichier en Mo/Ko ? ")
-            if chunk_size == "Mo":
+            security_level = input("Choisissez un niveau de sécurité(Low, Medium, High): ")
 
-                chunks = fileManager.split_file(encrypted_data, 1048576)
-                file_id = network.upload_chunks(chunks)
+            if security_level == "Low":
+                num_chunks = 10
+            elif security_level == "Medium":
+                num_chunks = 50
+            elif security_level == "High":
+                num_chunks = 100
+            else:
+                print("Choix invalide. Veuillez choisir entre Low, Medium, ou High.")
+                return
 
-                self.metadata[file_id] = {"file_path": filepath, "encrypted_key": encrypted_key.hex()}
-                self.save_metadata()
+            chunk_size = file_size // num_chunks  #Taille de base pour chaque morceau
+            remaining = file_size % num_chunks  #Reste à distribuer entre les morceaux
 
-                print(f"Fichier {filepath} envoyé avec succès. ID : {file_id}")
-                print(f"Veuillez sauvegarder la clé associée : {key.decode()}")
+            chunks = fileManager.split_file(encrypted_data, num_chunks, chunk_size, remaining)
+            file_id = network.upload_chunks(chunks)
 
-            elif chunk_size == "Ko":
-                chunks = fileManager.split_file(encrypted_data, 1024)
-                file_id = network.upload_chunks(chunks)
+            self.metadata[file_id] = {"file_path": filepath, "encrypted_key": encrypted_key.hex()}
+            self.save_metadata()
 
-                self.metadata[file_id] = {"file_path": filepath, "encrypted_key": encrypted_key.hex()}
-                self.save_metadata()
-
-                print(f"Fichier {filepath} envoyé avec succès. ID : {file_id}")
-                print(f"Veuillez sauvegarder la clé associée : {key.decode()}")
+            print(f"Fichier {filepath} envoyé avec succès. ID : {file_id}")
+            print(f"Veuillez sauvegarder la clé associée : {key.decode()}")
 
         else:
             print("Fichier introuvable")
-
 
     def download_file(self):
         file_id = input("Entrez l'ID du fichier à télécharger : ")
