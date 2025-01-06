@@ -20,13 +20,13 @@ def download_chunks(file_id):
         print(f"Aucun fichier trouvé pour l'ID : {file_id}")
         return []
 
-    
     print(f"Téléchargement des morceaux pour le fichier ID : {file_id}...")
     chunks = []
-    for chunk_file in sorted(os.listdir(storage_dir)):
+    for chunk_file in sorted(os.listdir(storage_dir), key=lambda x: int(x.split('_')[-1].split('.')[0])): 
+        #Afin de gérer le problème de recompilation (fichiers dans le désordre)
         chunk_path = os.path.join(storage_dir, chunk_file)
-        with open(chunk_path, "rb") as file:
-            chunks.append(file.read())
+        with open(chunk_path, "rb") as cf:
+            chunks.append(cf.read())
         print(f"Morceau {chunk_file} chargé.")
     return chunks
 
