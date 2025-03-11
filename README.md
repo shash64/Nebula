@@ -1,88 +1,88 @@
 # Nebula
 
 ## Description
-Nebula est un projet qui permet de créer un système de stockage de fichiers décentralisé et sécurisé. Les fichiers sont chiffrés, divisés en morceaux et distribués sur différents nœuds, ainsi, seul l'utilisateur ayant la clé privée peut accéder, télécharger ou supprimer ses fichiers.
+Nebula is a project that enables the creation of a decentralized and secure file storage system. Files are encrypted, split into chunks, and distributed across different nodes. Only the user with the private key can access, download, or delete their files.
 
-### Fonctionnalités principales:
-- **Chiffrement RSA** : Les fichiers sont protégés par une clé publique/privée.
-- **Découpage de fichiers** : Les fichiers sont divisés en morceaux pour être distribués.
-- **Stockage sécurisé** : Les morceaux sont stockés dans un dossier (en local pour le moment).
-- **Authentification des clés** : Seule la clé valide permet d'effectuer des manipulations sur les fichiers.
+### Key Features:
+- **RSA Encryption**: Files are protected by a public/private key pair.
+- **File Splitting**: Files are divided into chunks for distribution.
+- **Secure Storage**: Chunks are stored in a directory (locally for now).
+- **Key Authentication**: Only the valid key allows file manipulation.
 
-## Structure du projet
+## Project Structure
 
 ```
 .
-├── main.py            # Fichier principal du projet
-├── client.py          # Interface utilisateur et gestion des clés RSA
-├── file_manager.py    # Gestion du découpage et recomposition des fichiers
-├── network.py         # Simule la communication avec les nœuds (à venir)
-├── storage/           # Répertoire local pour stocker les morceaux
-├── metadata.json      # Métadonnées des fichiers (BDD)
-├── private_key.pem    # Clé privée RSA (générée automatiquement)
-└── public_key.pem     # Clé publique RSA (générée automatiquement)
+├── main.py # Main project file
+├── client.py # User interface and RSA key management
+├── file_manager.py # File splitting and reassembly management
+├── network.py # Simulates communication with nodes (to be implemented)
+├── storage/ # Local directory for storing chunks
+├── metadata.json # File metadata (database)
+├── private_key.pem # RSA private key (automatically generated)
+└── public_key.pem # RSA public key (automatically generated)
 ```
 
 ## Installation
 
-Installation du framework cryptography:
+Install the cryptography framework:
 ```bash
 pip install cryptography
 ```
 
-### Lancer le projet
-1. Cloner ce dépôt :
+### Running the Project
+1. Clone this repository:
 ```bash
 git clone https://github.com/shash64/Nebula.git
 ```
-2. Accèder au répertoire :
+2. Navigate to the directory:
 ```bash
 cd Nebula
 ```
-3. Lancer l'application :
+3. Launch the application:
 ```bash
 python main.py
 ```
 
-## Utilisation
+## Usage
 Une fois lancé, le programme permet:
-1. **Envoyer un fichier (upload)** : Sélectionne un fichier à chiffrer, découper et stocker.
-2. **Télécharger un fichier (download)** : Fournis l'ID du fichier et la clé pour le récupérer et le recompiler.
-3. **Supprimer un fichier (delete)** : Fournis l'ID et la clé pour demander la suppression.
-4. **Quitter (quit)** : Ferme l'application.
+1. **Upload a file (upload)** : Select a file to encrypt, split, and store.
+2. **Download a file (download)** : Provide the file ID and key to retrieve and reassemble it.
+3. **Delete a file (delete)** : Provide the ID and key to request deletion.
+4. **Quit (quit)** : Close the app.
 
-## Exemple:
-### Upload d'un fichier:
+## Example:
+### Uploading a file:
 ```
-=== Bienvenue dans le lanceur Nebula ===
-1. Envoyer un fichier (upload)
-2. Télécharger un fichier (download)
-3. Supprimer un fichier (delete)
-4. Quitter (quit)
-Choisissez une option : 1 ou upload
-Entrez le chemin du fichier à envoyer : mots.txt
-Divisez le fichier en Mo/Ko ? : Selon la taille du fichier 
-Fichier mots.txt envoyé avec succès. ID : 1234
-Clé associée : la clé à sauvegarder pour déchiffrer les fichiers
-```
-
-### Télécharger un fichier:
-```
-=== Bienvenue dans le lanceur Nebula ===
-1. Envoyer un fichier (upload)
-2. Télécharger un fichier (download)
-3. Supprimer un fichier (delete)
-4. Quitter (quit)
-Choisissez une option : 2 ou download
-Entrez l'ID du fichier à télécharger : 1234
-Entrez la clé associée : la clé générée lors de l'upload
-Téléchargement et décryptage terminés.
+=== Welcome to Nebula Launcher ===
+1. Upload a file
+2. Download a file
+3. Delete a file
+4. Quit
+Choose an option: 1 or upload
+Enter the file path to upload: words.txt
+Split the file in MB/KB? : Depending on file size
+File words.txt uploaded successfully. ID: 1234
+Associated key: the key to save for decryption
 ```
 
-## Fonctionnalités futures:
-- Distribution réelle des morceaux de fichiers sur des nœuds distants.
-- Implémentation d'un protocole réseau décentralisée.
-- Intégration d'un système de consensus pour la vérification entre les noeuds.
-- Intégration d'un système de requêtes (quand l'utilisateur demande un download, tous les noeuds ayant des morceaux l'envoie à l'utilisateur pour le reconstruire).
-- Mise en place de récompenses (crypto) pour les noeuds qui hébergent des fichiers externes
+### Downloading a file:
+```
+=== Welcome to Nebula Launcher ===
+1. Upload a file
+2. Download a file
+3. Delete a file
+4. Quit
+Choose an option: 2 or download
+Enter the file ID to download: 1234
+Enter the associated key: the key generated during upload
+Download and decryption completed.
+```
+
+## Future Features:
+- Real distribution of file chunks across remote nodes.
+- Implementation of a decentralized network protocol.
+- Integration of a consensus system for node verification.
+- Integration of a query system (when a user requests a download, all nodes with chunks send them to the user for reassembly).
+- Implementation of rewards (crypto) for nodes hosting external files.
 
